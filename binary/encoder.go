@@ -233,6 +233,7 @@ func (w *binaryEncoder) writeChildren(children interface{}) error {
 			return err
 		}
 	case []byte:
+		fmt.Printf("Buffer with length %+v\n", len(childs))
 		if err := w.writeByteLength(len(childs)); err != nil {
 			return err
 		}
