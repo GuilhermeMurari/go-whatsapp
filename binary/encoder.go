@@ -83,6 +83,7 @@ func (w *binaryEncoder) writeByteLength(length int) error {
 
 func (w *binaryEncoder) WriteNode(n Node) error {
 	fmt.Printf("In WriteNode %+v\n\n\n", w.data)
+	fmt.Printf("Node is %+v\n", n);
 	numAttributes := 0
 	if n.Attributes != nil {
 		numAttributes = len(n.Attributes)
@@ -221,7 +222,7 @@ func (w *binaryEncoder) writeAttributes(attributes map[string]string) error {
 }
 
 func (w *binaryEncoder) writeChildren(children interface{}) error {
-	fmt.Printf("Children is %+v", children)
+	fmt.Printf("Children is %+v\n", children)
 	if children == nil {
 		return nil
 	}
