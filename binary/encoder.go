@@ -205,9 +205,12 @@ func (w *binaryEncoder) writeAttributes(attributes map[string]string) error {
 			continue
 		}
 
+		fmt.Printf("Key is %+v\n", key);
+		fmt.Printf("Value is %+v\n", val);
 		if err := w.writeString(key, false); err != nil {
 			return err
 		}
+
 
 		if err := w.writeString(val, false); err != nil {
 			return err
