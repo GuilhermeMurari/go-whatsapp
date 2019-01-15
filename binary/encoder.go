@@ -82,7 +82,7 @@ func (w *binaryEncoder) writeByteLength(length int) error {
 }
 
 func (w *binaryEncoder) WriteNode(n Node) error {
-	fmt.Print("In WriteNode\n\n\n")
+	fmt.Printf("In WriteNode %+v\n\n\n", w.data)
 	numAttributes := 0
 	if n.Attributes != nil {
 		numAttributes = len(n.Attributes)
