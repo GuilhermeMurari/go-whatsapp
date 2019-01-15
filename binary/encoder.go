@@ -82,6 +82,7 @@ func (w *binaryEncoder) writeByteLength(length int) error {
 }
 
 func (w *binaryEncoder) WriteNode(n Node) error {
+	fmt.Print("In WriteNode\n\n\n")
 	numAttributes := 0
 	if n.Attributes != nil {
 		numAttributes = len(n.Attributes)
@@ -93,18 +94,19 @@ func (w *binaryEncoder) WriteNode(n Node) error {
 	}
 
 	w.writeListStart(2*numAttributes + 1 + hasContent)
+	fmt.Printf("List size %+v\n", 2*numAttributes + 1 + hasContent)
 	if err := w.writeString(n.Description, false); err != nil {
 		return err
 	}
-
+	fmt.Printf("After writeString %+v\n", w.data)
 	if err := w.writeAttributes(n.Attributes); err != nil {
 		return err
 	}
-
+	fmt.Printf("After writeAttributes %+v\n", w.data)
 	if err := w.writeChildren(n.Content); err != nil {
 		return err
 	}
-
+	fmt.Printf("After writeChildren %+v\n", w.data)
 	return nil
 }
 
