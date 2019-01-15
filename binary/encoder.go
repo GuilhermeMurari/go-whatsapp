@@ -221,6 +221,7 @@ func (w *binaryEncoder) writeAttributes(attributes map[string]string) error {
 }
 
 func (w *binaryEncoder) writeChildren(children interface{}) error {
+	fmt.Printf("Children is %+v", children)
 	if children == nil {
 		return nil
 	}
