@@ -193,10 +193,12 @@ func (w *binaryEncoder) writeToken(tok int) error {
 }
 
 func (w *binaryEncoder) writeAttributes(attributes map[string]string) error {
-	fmt.Printf("Attributes %+v\n", attributes)
 	if attributes == nil {
+		fmt.Print("Attributes NIL\n")
 		return nil
 	}
+
+	fmt.Printf("Attributes %+v\n", attributes)
 
 	for key, val := range attributes {
 		if val == "" {
