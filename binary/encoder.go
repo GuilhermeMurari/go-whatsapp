@@ -97,7 +97,7 @@ func (w *binaryEncoder) WriteNode(n Node) error {
 	w.writeListStart(2*numAttributes + 1 + hasContent)
 	fmt.Printf("List size %+v\n", 2*numAttributes + 1 + hasContent)
 	fmt.Printf("After writeListStart%+v\n", w.data)
-	
+
 	if err := w.writeString(n.Description, false); err != nil {
 		return err
 	}
@@ -193,6 +193,7 @@ func (w *binaryEncoder) writeToken(tok int) error {
 }
 
 func (w *binaryEncoder) writeAttributes(attributes map[string]string) error {
+	fmt.Printf("Attributes %+v\n", attributes)
 	if attributes == nil {
 		return nil
 	}
